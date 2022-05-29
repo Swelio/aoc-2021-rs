@@ -1,0 +1,14 @@
+[package]
+name = "aoc_2021_rs"
+description = "Advent of Code 2021 proposition of solutions with Rust language."
+authors = ["Swelio"]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+keywords = ["education", "aoc", "advent-of-code"]
+repository = "https://github.com/Swelio/aoc-2021-rs.git"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "3.1.18", features = ["default", "derive"] }

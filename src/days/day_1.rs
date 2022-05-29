@@ -47,9 +47,21 @@ fn part_2(lines: &[usize]) -> usize {
 mod test_day {
     use super::{part_1, part_2};
 
+    /// Sample lines from guidelines
+    const TEST_LINES: &str = "199
+200
+208
+210
+200
+207
+240
+269
+260
+263";
+
     #[test]
     fn test_part_1() {
-        let input_lines: Vec<usize> = "199\n200\n208\n210\n200\n207\n240\n269\n260\n263"
+        let input_lines: Vec<usize> = TEST_LINES
             .lines()
             .map(|l| l.parse::<usize>().unwrap())
             .collect();
@@ -59,7 +71,7 @@ mod test_day {
 
     #[test]
     fn test_part_2() {
-        let input_lines: Vec<usize> = "199\n200\n208\n210\n200\n207\n240\n269\n260\n263"
+        let input_lines: Vec<usize> = TEST_LINES
             .lines()
             .map(|l| l.parse::<usize>().unwrap())
             .collect();

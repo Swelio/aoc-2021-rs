@@ -2,7 +2,7 @@
 
 use clap::Parser;
 
-use aoc_2021_rs::{day_1, DailySolution};
+use aoc_2021_rs::{days, DailySolution};
 
 #[derive(Parser)]
 #[clap(author, version, about, arg_required_else_help = true)]
@@ -17,7 +17,8 @@ fn main() {
 
     for requested_day_number in cli.running_day.iter() {
         match requested_day_number {
-            1 => day_1::Solution::run(),
+            1 => days::day_1::Solution::run(),
+            2 => days::day_2::Solution::run(),
             _ => panic!("the day {} is not implemented", requested_day_number),
         }
         .unwrap();

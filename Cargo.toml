@@ -12,3 +12,4 @@ repository = "https://github.com/Swelio/aoc-2021-rs.git"
 
 [dependencies]
 clap = { version = "3.1.18", features = ["default", "derive"] }
+regex = "1.5.6"

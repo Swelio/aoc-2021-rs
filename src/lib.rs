@@ -3,9 +3,7 @@
 use std::io;
 use std::path::Path;
 
-mod days;
-
-pub use days::day_1;
+pub mod days;
 
 /// An abstract error enum to handle errors.
 #[derive(Debug)]

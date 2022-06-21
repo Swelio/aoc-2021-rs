@@ -13,16 +13,16 @@ struct Cli {
 }
 
 fn main() {
-    let cli = Cli::parse();
+    let cli: Cli = Cli::parse();
 
-    for requested_day_number in cli.running_day.iter() {
+    for requested_day_number in cli.running_day.into_iter() {
         match requested_day_number {
-            1 => days::day_1::Solution::run(),
-            2 => days::day_2::Solution::run(),
-            3 => days::day_3::Solution::run(),
-            4 => days::day_4::Solution::run(),
-            5 => days::day_5::Solution::run(),
-            6 => days::day_6::Solution::run(),
+            days::day_1::Solution::DAY_NUMBER => days::day_1::Solution::run(),
+            days::day_2::Solution::DAY_NUMBER => days::day_2::Solution::run(),
+            days::day_3::Solution::DAY_NUMBER => days::day_3::Solution::run(),
+            days::day_4::Solution::DAY_NUMBER => days::day_4::Solution::run(),
+            days::day_5::Solution::DAY_NUMBER => days::day_5::Solution::run(),
+            days::day_6::Solution::DAY_NUMBER => days::day_6::Solution::run(),
             _ => panic!("the day {} is not implemented", requested_day_number),
         }
         .unwrap();

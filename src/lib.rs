@@ -1,5 +1,6 @@
 #![deny(clippy::all)]
 
+use std::fmt::{Display, Formatter};
 use std::io;
 use std::path::Path;
 
@@ -16,6 +17,16 @@ impl From<io::Error> for Error {
         Self::IOError(error)
     }
 }
+
+impl Display for Error {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::IOError(err) => std::fmt::Display::fmt(err, f),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
 
 /// A trait to run a daily solution. Each daily solution could have an input file to use.
 /// This input file can be found into the *aoc_inputs* directory stored into current directory.

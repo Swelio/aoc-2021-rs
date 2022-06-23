@@ -24,6 +24,7 @@ fn main() {
             days::day_5::Solution::DAY_NUMBER => days::day_5::Solution::run(),
             days::day_6::Solution::DAY_NUMBER => days::day_6::Solution::run(),
             days::day_7::Solution::DAY_NUMBER => days::day_7::Solution::run(),
+            days::day_8::Solution::DAY_NUMBER => days::day_8::Solution::run(),
             _ => panic!("the day {} is not implemented", requested_day_number),
         }
         .unwrap();

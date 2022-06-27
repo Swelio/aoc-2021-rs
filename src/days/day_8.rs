@@ -19,7 +19,10 @@ impl DailySolution for Solution {
         let lines = fs::read_to_string(input_path)?;
 
         let part_1_result = part_1(&lines);
-        println!("There are {} digits with unique number of segments", part_1_result);
+        println!(
+            "There are {} digits with unique number of segments",
+            part_1_result
+        );
         todo!()
     }
 }
@@ -40,7 +43,7 @@ fn part_1(lines: &str) -> usize {
         .sum()
 }
 
-fn part_2() {
+fn part_2(lines: &str) -> usize {
     todo!()
 }
 
@@ -52,6 +55,23 @@ fn identify_digit(pattern: &str) -> Option<usize> {
         7 => Some(8),
         _ => None,
     }
+}
+
+/// Find the best wires map. A wire map is an array of 7 positions.
+/// For each position, there is a letter.
+/// Positions are indexed from top, then left to right to the bottom
+/// The following example is indexed as `[a, b, c, d, e, f, g]`:
+/// ```
+///  aaaa
+/// b    c
+/// b    c
+///  dddd
+/// e    f
+/// e    f
+///  gggg
+/// ```
+fn find_wires_map(line: &str) -> [char; 7] {
+    todo!()
 }
 
 #[cfg(test)]
@@ -77,5 +97,8 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
 
     #[test]
     #[ignore]
-    fn test_part_2() {}
+    fn test_part_2() {
+        let input =
+            r"acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf";
+    }
 }

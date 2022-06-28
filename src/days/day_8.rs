@@ -1,7 +1,7 @@
 //! This is the day 8 module.
 //! The instructions are available here: https://adventofcode.com/2021/day/8
 
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::fs;
 use std::path::Path;
 
@@ -26,7 +26,6 @@ impl DailySolution for Solution {
         todo!()
     }
 }
-
 
 fn part_1(lines: &str) -> usize {
     lines
@@ -70,13 +69,49 @@ fn identify_digit(pattern: &str) -> Option<usize> {
 /// e    f
 ///  gggg
 /// ```
-fn find_wires_map(line: &str) -> [char; 7] {
+fn decode_line(line: &str) -> String {
+    let mut known_digits = HashMap::new();
+
+    line.split(' ')
+        .filter(|word| !word.is_empty() && *word != "|")
+        .for_each(|word| match identify_digit(word) {
+            None => {}
+            Some(digit) => {
+                if !known_digits.contains_key(&digit) {
+                    let mut set = HashSet::new();
+                    word.chars().for_each(|c| {
+                        set.insert(c);
+                    });
+                    known_digits.insert(digit, set);
+                }
+            }
+        });
+
+    line.split(' ')
+        .filter(|word| !word.is_empty() && *word != "|")
+        .map(|word| match identify_digit(word) {
+            Some(digit) => digit,
+            None => match word.len() {
+                // can be 2,3,5
+                5 => {
+                    todo!()
+                }
+                // can be 0,6,9
+                6 => {
+                    todo!()
+                }
+                _ => {
+                    todo!()
+                }
+            },
+        });
+
     todo!()
 }
 
 #[cfg(test)]
 mod test_day {
-    use super::part_1;
+    use super::{decode_line, part_1};
 
     const TEST_INPUT: &str = r"be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd edb | fdgacbe cefdb cefbgd gcbe
 edbfga begcd cbg gc gcadebf fbgde acbgfd abcde gfcbed gfec | fcgedb cgb dgebacf gc
@@ -96,9 +131,9 @@ gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce
     }
 
     #[test]
-    #[ignore]
     fn test_part_2() {
         let input =
             r"acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf";
+        let wires_map = decode_line(input);
     }
 }
